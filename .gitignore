@@ -1,0 +1,28 @@
+# Ignore Python virtual environment
+blogg_env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Django migrations
+**/migrations/
+
+
+
+# VS Code settings
+.vscode/
+
+# Other common Python ignores
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.bak
+*.tmp
+*.env
+.env.*
+
+
