@@ -1,5 +1,9 @@
 <div class="bg-white rounded-lg shadow p-6 text-center">
   <h2 class="text-2xl font-bold mb-2">{{ title }}</h2>
+  <h2 class="text-lg text-gray-600 mb-4"><i>Last updated: {{ post.updated_at }}</i></h2>
   <p class="text-gray-700">{{ content }}</p>
-  <a href="{% url 'post_detail' post_id=post_id %}" class="text-blue-500 hover:underline mt-4 inline-block">Read More</a>
+  <div class="mt-6 flex space-x-4 justify-around">
+      <a href="{% url 'post_detail' post_id=post_id %}" class="text-blue-500 hover:underline mt-4 inline-block">Read More</a>
+      <a href="{% url 'edit_post' post_id=post_id %}" class="text-blue-500 hover:underline mt-4 inline-block">Edit</a>
+  </div>
 </div>
