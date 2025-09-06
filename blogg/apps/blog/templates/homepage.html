@@ -7,7 +7,12 @@
 
     <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for post in blog %}
-            {% include "components/card.html" with title=post.title content=post.content|truncatewords:20 readmore_url=post.get_absolute_url %}
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <script>
+                    console.log("{{ post.id }}");
+                </script>
+                {% include "components/card.html" with title=post.title content=post.content|truncatewords:20 post_id=post.id %}
+            </div>
         {% endfor %}
 </div>
 
