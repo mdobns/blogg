@@ -2,9 +2,8 @@
 
 {% block content %}
 <div class="container mx-auto text-center">
-    <h1 class="text-4xl font-bold mb-6">Welcome to the Blog</h1>
-    <p class="text-lg text-gray-700">This is a simple blog template using Tailwind CSS.</p>
-
+    <a href="{% url 'add_post' %}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add New Post</a>
+    <a href="{% url 'get_hidden_posts' %}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Hidden Posts</a>
     <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for post in blog %}
             <div class="bg-white rounded-lg shadow-md p-6">
@@ -14,6 +13,8 @@
                 {% include "components/card.html" with title=post.title content=post.content|truncatewords:20 post_id=post.id %}
             </div>
         {% endfor %}
-</div>
+    </div>
+    </div>
+
 
 {% endblock %}

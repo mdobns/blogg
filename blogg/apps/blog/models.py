@@ -8,6 +8,15 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     published = models.BooleanField(default=False)
+    view_count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title
+    
+    def add_post(self, title, content):
+        post = Post(title=title, content=content, published=True)
+        post.save()
+        return post
 
 class Comments(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')

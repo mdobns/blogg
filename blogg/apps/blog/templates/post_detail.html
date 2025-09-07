@@ -5,4 +5,26 @@
         <h1 class="text-4xl font-bold mb-6">{{ post.title }}</h1>
         <p class="text-lg text-gray-700">{{ post.content }}</p>
     </div>
+<div class="container mx-auto mt-6">
+    <h2 class="text-2xl font-bold mt-6">View Count: {{ post.view_count }}</h2>
+
+    {% if post.comments.count > 0 %}
+        <div class="mt-6">
+            <h2 class="text-2xl font-bold mb-4">Comments</h2>
+            <div id="comments-section">
+                {% for comment in comments %}
+                    <div class="border-b border-gray-300 py-2">
+                        <p class="font-semibold">{{ comment.author }}</p>
+                        <p class="text-gray-700">{{ comment.text }}</p>
+                    </div>
+                {% empty %}
+                    <p class="text-gray-500">No comments yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+        <p class="text-gray-500">No comments yet.</p>
+    {% endif %}
+    </div>
 {% endblock %}
+
