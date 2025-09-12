@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import UserProfile, Post, Comments
+from .models import  Post, Comments
+from apps.auths.models import UserProfile
 # Register your models here.
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at', 'published', 'view_count')

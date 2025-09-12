@@ -4,6 +4,7 @@
 <div class="container mx-auto text-center">
     <a href="{% url 'add_post' %}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add New Post</a>
     <a href="{% url 'get_hidden_posts' %}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Hidden Posts</a>
+    <a href="{% url 'signup' %}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 ml-2">Register</a>
     <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for post in blog %}
             <div class="bg-white rounded-lg shadow-md p-6">

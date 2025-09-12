@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Sign Up | {% endblock %}
+{% block content %}
+<h2 class="text-3xl font-bold text-center mb-6 text-blue-700">Sign Up</h2>
+<form method="post" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+  {% csrf_token %}
+  <p class="text-gray-700"> Enter your first name</p>
+  <input name="first_name" placeholder="First Name" required class="w-full p-2 border border-gray-300 rounded mb-4">
+  <p class="text-gray-700"> Enter your last name</p>
+  <input name="last_name" placeholder="Last Name" required class="w-full p-2 border border-gray-300 rounded mb-4">
+  <p class="text-gray-700"> Enter your username</p>
+  <input name="username" placeholder="Username" required class="w-full p-2 border border-gray-300 rounded mb-4">
+  <p class="text-gray-700"> Enter your email</p>
+  <input name="email" type="email" placeholder="Email" required class="w-full p-2 border border-gray-300 rounded mb-4">
+  <p class="text-gray-700"> Enter your password</p>
+    <div class="relative mb-4">
+      <input id="password1" name="password1" type="password" placeholder="Password" required class="w-full p-2 border border-gray-300 rounded">
+    <button type="button" onclick="togglePassword('password1', this)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full text-xs flex items-center justify-center">
+        <svg id="eye-password1" xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3C5 3 1.73 7.11 1.73 10c0 2.89 3.27 7 8.27 7s8.27-4.11 8.27-7c0-2.89-3.27-7-8.27-7zm0 12c-3.31 0-6-3.13-6-5s2.69-5 6-5 6 3.13 6 5-2.69 5-6 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>
+      </button>
+    </div>
+    <p class="text-gray-700"> Confirm your password</p>
+    <div class="relative mb-4">
+      <input id="password2" name="password2" type="password" placeholder="Confirm Password" required class="w-full p-2 border border-gray-300 rounded">
+    <button type="button" onclick="togglePassword('password2', this)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full text-xs flex items-center justify-center">
+        <svg id="eye-password2" xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3C5 3 1.73 7.11 1.73 10c0 2.89 3.27 7 8.27 7s8.27-4.11 8.27-7c0-2.89-3.27-7-8.27-7zm0 12c-3.31 0-6-3.13-6-5s2.69-5 6-5 6 3.13 6 5-2.69 5-6 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>
+      </button>
+    </div>
+  <button type="submit" class="w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-200">Sign Up</button>
+    <script>
+      function togglePassword(fieldId, btn) {
+        const input = document.getElementById(fieldId);
+        const eye = btn.querySelector('svg');
+        if (input.type === 'password') {
+          input.type = 'text';
+          eye.innerHTML = '<path d="M10 3C5 3 1.73 7.11 1.73 10c0 2.89 3.27 7 8.27 7s8.27-4.11 8.27-7c0-2.89-3.27-7-8.27-7zm0 12c-3.31 0-6-3.13-6-5s2.69-5 6-5 6 3.13 6 5-2.69 5-6 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/><line x1="4" y1="4" x2="16" y2="16" stroke="red" stroke-width="2"/>';
+        } else {
+          input.type = 'password';
+          eye.innerHTML = '<path d="M10 3C5 3 1.73 7.11 1.73 10c0 2.89 3.27 7 8.27 7s8.27-4.11 8.27-7c0-2.89-3.27-7-8.27-7zm0 12c-3.31 0-6-3.13-6-5s2.69-5 6-5 6 3.13 6 5-2.69 5-6 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/>';
+        }
+      }
+    </script>
+</form>
+<h3 class="text-center mt-4">
+  Already have an account? <a href="{% url 'login' %}" class="text-cyan-500 hover:underline">Login</a>
+</h3>
+{% endblock %}
